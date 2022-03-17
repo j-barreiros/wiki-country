@@ -1,12 +1,18 @@
 import React from 'react'
 
+// React Router
+import  {useNavigate} from 'react-router-dom';
+
 // Styled Component
 import { StyledCountryIngoBox } from './StyledCountryInfoBox';
 
 function CountryInfoBox(props:any) {
     const {flag ,name, population, region, capital} = props.country;
+
+    const navigate = useNavigate();
+
     return (
-      <StyledCountryIngoBox>
+      <StyledCountryIngoBox onClick={() => navigate(`${name}`)}>
           <img
             src={flag}
             alt={`Flag from ${name}`}
